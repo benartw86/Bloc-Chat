@@ -1,10 +1,9 @@
 (function() {
-    function CreateRoomCtrl (Room, $uibModalInstance) {
+    function CreateRoomCtrl(Room, $uibModalInstance) {
         
-        
-        this.addChat = function() {  //Not sure what the correct syntax to add new chat is
-            Room.addChatRoom({text: newChatRoomName});
-         };  
+        this.addChat = function(roomName) {  
+           Room.addChatRoom(roomName);
+         }  
         
         this.ok = function() {
               $uibModalInstance.close('All Done');

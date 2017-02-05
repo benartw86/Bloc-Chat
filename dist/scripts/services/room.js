@@ -4,7 +4,9 @@
     var rooms = $firebaseArray(ref);
       
     this.addChatRoom = function(newChatRoomName) {
-        rooms.$add({$value: newChatRoomName});
+        rooms.$add({
+            name: newChatRoomName
+        });
     }; 
       
     return {
