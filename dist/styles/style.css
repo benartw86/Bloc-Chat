@@ -1,14 +1,17 @@
 .chat-side-bar {
-    float: left;
-    width: 20%;
-    height: 1000px;
     background: grey;
+    height: 1000px;
 }
 
 .chat-side-bar h1 {
     text-align: left;
     text-shadow: 2px 2px 4px white;
     text-decoration: underline;
+    display: inline-block;
+}
+
+.chat-side-bar btn  {
+    margin-top: 50px;
 }
 
 .chat-side-bar h1:hover {
@@ -19,6 +22,21 @@
     padding: 5px;
     color: black;
     text-shadow: 2px 2px 4px white;
+}
+
+#chat-room-list:hover {
+    font-style: italic;
+    background-color: aliceblue;
+}
+
+#chat-room-container {
+    background-color: whitesmoke;
+    color: aquamarine;
+    height: 1000px;
+}
+
+#bloc-chat-title {
+    padding-right: 100px;
 }
 
 .container {
