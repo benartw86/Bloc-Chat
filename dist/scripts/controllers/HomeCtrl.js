@@ -3,6 +3,7 @@
         this.rooms = Room.all; 
         this.room = null;
         this.messages = null;
+
         
     this.open = function() {
     var modalInstance = $uibModal.open({  //uib modal creates a object on to which you can add functionality.  Imagine the uib modal as the container that opens up when you click the modal button
@@ -16,10 +17,18 @@
      
     this.storeRoomName = function(room) {    //store a room from this.rooms in as scope value
         this.room = room;
-        this.messages = Message.getByRoomId(room.$id);
+        this.activeRoom = room.name;
+        this.messages = Message.getByRoomId(room.$id);  
+    }
+    
+    this.addMessage = function(newMessage) {
+        Message.send(newMessage);
+        console.log(newMessage);
     }
         
   }
+    
+    
 
     angular
         .module('blocChat')

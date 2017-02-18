@@ -1,6 +1,6 @@
 .chat-side-bar {
     background: grey;
-    height: 1000px;
+    height: 500px;
 }
 
 .chat-side-bar h1 {
@@ -29,10 +29,11 @@
     background-color: aliceblue;
 }
 
-#chat-room-container {
-    background-color: whitesmoke;
+.chat-room-container {
+    background-color: antiquewhite;
     color: blue;
-    height: 1000px;
+    height: 500px;
+    display: inline-block;
 }
 
 #bloc-chat-title {
@@ -43,3 +44,8 @@
     height 50px;
     width 50px;
 }
+
+.footer {
+   margin-left: 50%;
+}
+

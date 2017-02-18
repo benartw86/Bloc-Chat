@@ -3,7 +3,7 @@
         this.setUsername = function(newUser) {  //function to add user to cookie
             $cookies.put('blocChatCurrentUser', newUser);  //replace current key with new one
             if ($cookies.get('blocChatCurrentUser')) {
-                alert('Welcome!  Now click done! ' + newUser);   
+                alert('Welcome!  Now click done, ' + newUser + "!");   
                 } else {
                 alert('Enter a username!');
                 }   

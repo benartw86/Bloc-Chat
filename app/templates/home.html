@@ -1,4 +1,6 @@
-<div class="col-sm-4 chat-side-bar">
+<div class="container">
+
+  <div class="col-sm-4 chat-side-bar">
     
     <h1 id="bloc-chat-title">Bloc Chat</h1>  
     
@@ -10,16 +12,23 @@
         </li> <!--click to store current room in a scope object, room.name comes from firebase array the name being property of the room -->
     </ul>
     
-</div>
-
-<div id="chat-room-container" class="col-sm-8">
+  </div>
     
-    <h1>{{home.room.name}}</h1>  <!--show the name clicked in the div-->
-    <div ng-repeat="message in home.messages">
-        <ul><li>{{message.content}}</li></ul>
+  <div class="col-sm-8 chat-room-container">    
+
+      <div>
+          <h1>{{home.room.name}}</h1>  <!--show the name clicked in the div-->
+        <div ng-repeat="message in home.messages">
+          <ul><li>{{message.username}}{{message.content}}</li></ul>
+        </div>
+      </div> 
+    </div>  
+    
+    <div class="footer"><input id="chatMessage" type="text" ng-model="chatMessage"       placeholder="Enter your message . .    ."><button ng-click="home.addMessage(chatMessage)" type="button" class="button btn-primary" >Send</button> 
     </div>
     
-</div>  
+</div>   
+
 
 
     <!-- //curly braces to hold the name of the active room, ng model to bind? -->
