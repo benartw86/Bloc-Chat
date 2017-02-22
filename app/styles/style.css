@@ -45,7 +45,16 @@
     width 50px;
 }
 
-.footer {
-   margin-left: 50%;
+#chatMessage {
+   position: absolute;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    width: 100%;
+}
+
+#chatMessage input {
+    width: 80%;
+    text-decoration: 
 }
 

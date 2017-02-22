@@ -1,8 +1,10 @@
 (function() {
-    function HomeCtrl(Room, $uibModal, Message) {  //inject the room service in order to assign the array of objects retrieved by "all" method
+    function HomeCtrl(Room, Message, $cookies, $uibModal) {  //inject the room service in order to assign the array of objects retrieved by "all" method
         this.rooms = Room.all; 
         this.room = null;
         this.messages = null;
+        this.newMessage = null;
+        this.currentUser = $cookies.get('blocChatCurrentUser');
 
         
     this.open = function() {
@@ -16,14 +18,13 @@
   }; 
      
     this.storeRoomName = function(room) {    //store a room from this.rooms in as scope value
-        this.room = room;
-        this.activeRoom = room.name;
-        this.messages = Message.getByRoomId(room.$id);  
+        this.room = room;  
+        this.messages = Message.getByRoomId(room.$id);
     }
     
-    this.addMessage = function(newMessage) {
-        Message.send(newMessage);
-        console.log(newMessage);
+    this.addMessage = function(chatMessage) {
+        Message.send(chatMessage, this.room.$id);  //send message from home view to service to firebase array
+        this.newMessage = null; //make newMessage empty again, ready for new submit
     }
         
   }
@@ -32,6 +33,6 @@
 
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['Room', '$uibModal', 'Message', HomeCtrl]);  //do we need ui.boostrap here
+        .controller('HomeCtrl', ['Room', 'Message', '$cookies', '$uibModal', HomeCtrl]);  //do we need ui.boostrap here
 })();
 

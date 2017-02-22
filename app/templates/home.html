@@ -11,21 +11,30 @@
             <a ng-click="home.storeRoomName(room)">{{room.name}}</a>
         </li> <!--click to store current room in a scope object, room.name comes from firebase array the name being property of the room -->
     </ul>
+      
+    <button>Logout</button>  
     
   </div>
     
   <div class="col-sm-8 chat-room-container">    
 
       <div>
-          <h1>{{home.room.name}}</h1>  <!--show the name clicked in the div-->
+          <h1 style="color: black">{{home.room.name}}</h1>  <!--show the name clicked in the div-->
         <div ng-repeat="message in home.messages">
-          <ul><li>{{message.username}}{{message.content}}</li></ul>
+            <ul>
+              <h3 style= "text-decoration: underline">{{message.username}}</h3>
+              <li>{{message.content}} - {{message.sentAt | date: 'dd/MM/yyyy HH:mm:ss'}}</li>
+            </ul>
         </div>
       </div> 
+      
+        <footer id="chatMessage"><input type="text" ng-model="home.newMessage" placeholder="Enter your message . . .">{{message.content}}<button ng-click="home.addMessage(home.newMessage)" type="button" class="button btn-primary" >Send</button>
+      </footer>    
+    
+      
     </div>  
     
-    <div class="footer"><input id="chatMessage" type="text" ng-model="chatMessage"       placeholder="Enter your message . .    ."><button ng-click="home.addMessage(chatMessage)" type="button" class="button btn-primary" >Send</button> 
-    </div>
+    
     
 </div>   
 
